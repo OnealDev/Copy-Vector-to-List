@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <list>
+
+using namespace std;
+
+template <typename T>
+void Copy_To_Vector_List_2d(const vector<vector<T>>& V, list<list<T>>& L_2d){
+    for(const auto& row: V)
+        L_2d.emplace_back(row.begin(), row.end());
+}
+
+template <typename T>
+void Display_2D(const T& container){
+    for (const auto& row : container){
+        for(const auto& element : row)
+        cout << element << " ";
+        cout << endl;
+    }
+}
+
+int main(){
+    vector<vector<int>> V = {{1},{1,2},{1,2,3}};
+    list<list<int>> L_2d;
+    cout << "Vector = \n";
+    Display_2D(V); 
+    Copy_To_Vector_List_2d(V, L_2d);
+    cout << "\n Linked List= \n";
+    Display_2D(L_2d);
+    
+    cout << "**********";
+    
+return 0;
+
+}
+    
+    
